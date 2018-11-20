@@ -20,7 +20,7 @@ public class UserRedis {
 
     public void add(String key, Long time, User user) {
         Gson gson = new Gson();
-        redisTemplate.opsForValue().set(key, gson.toJson(user), time, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(key, gson.toJson(user, User.class), time, TimeUnit.MINUTES);
     }
 
     public void add(String key, Long time, List<User> userList) {
